@@ -1,0 +1,25 @@
+{
+  "name": "knexjs-play",
+  "version": "0.1.0",
+  "description": "KnexJS learning",
+  "main": "index.js",
+  "author": "Guilherme Marques",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node src/main.ts",
+    "migrate": "knex migrate:latest --migrations-directory src/db/migrations",
+    "migrate:rollback": "knex migrate:rollback --all --migrations-directory src/db/migrations",
+    "migrate:create": "knex migrate:make --migrations-directory src/db/migrations"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "better-sqlite3": "^8.3.0",
+    "knex": "^2.4.2",
+    "sqlite3": "^5.1.6"
+  }
+}
