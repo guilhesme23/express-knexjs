@@ -1,10 +1,9 @@
 import { User } from '../models/user.model';
 import { db } from '../db/config';
-import { Service } from '../interfaces/service.interface';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
 
-export const UserService: Service<User> = {
+export const UserService = {
   getAll,
   create
 }
