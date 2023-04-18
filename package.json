@@ -18,6 +18,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
     "better-sqlite3": "^8.3.0",
     "knex": "^2.4.2",
     "sqlite3": "^5.1.6"

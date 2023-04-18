@@ -7,6 +7,9 @@ const config: { [key: string]: Knex.Config } = {
     client: "sqlite3",
     connection: {
       filename: "./src/db/dev.sqlite3"
+    },
+    seeds: {
+      directory: "./src/db/seeds"
     }
   },
 

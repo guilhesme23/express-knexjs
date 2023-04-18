@@ -7,10 +7,5 @@ const knex = Knex({
   }
 })
 
-knex.schema.createTable('users', t => {
-  t.increments()
-  t.string('name')
-  t.timestamps()
-})
 
 
