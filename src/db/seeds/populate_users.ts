@@ -1,5 +1,6 @@
 import { Knex } from "knex";
 import { faker } from '@faker-js/faker';
+import bcrypt from 'bcrypt'
 
 const table_name = 'users'
 
@@ -13,7 +14,7 @@ export async function seed(knex: Knex): Promise<void> {
         id: faker.datatype.uuid(),
         username: faker.internet.userName(),
         email: faker.internet.email(),
-        password: "123456",
+        password: bcrypt.hashSync("123456", 12),
         name: faker.name.fullName()
       }
     })

@@ -2,6 +2,7 @@ import { User } from '../models/user.model';
 import { db } from '../db/config';
 import { Service } from '../interfaces/service.interface';
 import crypto from 'crypto';
+import bcrypt from 'bcrypt';
 
 export const UserService: Service<User> = {
   getAll,
@@ -9,9 +10,14 @@ export const UserService: Service<User> = {
 }
 
 async function create(data: Partial<User>): Promise<User> {
+  if (!('password' in data)) {
+    throw Error('Missing password')
+  }
+
   const user = await db.insert({
     id: crypto.randomUUID(),
-    ...data
+    ...data,
+    password: await bcrypt.hash(data.password as string, 12) 
   }, ['id', 'name', 'username', 'email']).into<User>('users')
 
   if (!user) {
